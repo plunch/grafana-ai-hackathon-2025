@@ -1,0 +1,27 @@
+name: hackathon2025
+services:
+  proxy:
+    image: docker.io/grafana/pdc-agent
+    command: -token ${GRAFANA_TOKEN:?error} -cluster prod-eu-north-0 -gcloud-hosted-grafana-id 1432664
+    restart: always
+
+  postgresql:
+    image: docker.io/postgres:18
+    restart: always
+    shm_size: 128mb
+    environment:
+      POSTGRES_PASSWORD: example
+    volumes:
+      - db-data:/var/lib/postgresql
+      - ./initdb.d/:/docker-entrypoint-initdb.d/
+  mcp:
+    build: ./mcp
+    environment:
+      PGHOST: postgresql
+      PGUSER: postgres
+      PGDATABASE: postgres
+      PGPASSWORD: example
+    ports:
+      - 8888:8080
+volumes:
+  db-data:

@@ -1,0 +1,27 @@
+{
+  "name": "hackathon2025",
+  "version": "1.0.0",
+  "description": "",
+  "type": "module",
+  "main": "index.ts",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.22.0",
+    "express": "^5.1.0",
+    "pg": "^8.16.3",
+    "zod": "^3.25.76"
+  },
+  "devDependencies": {
+    "@tsconfig/node24": "^24.0.2",
+    "@types/express": "^5.0.5",
+    "@types/node": "24",
+    "@types/pg": "^8.15.6",
+    "prettier": "^3.6.2",
+    "typescript": "^5.9.3"
+  }
+}
